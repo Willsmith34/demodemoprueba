@@ -1,0 +1,177 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Work Sans", system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-accent-ink: var(--accent-ink);
+  --color-purple: var(--purple);
+  --color-fuchsia: var(--fuchsia);
+  --color-yellow: var(--yellow);
+  --color-ivory: var(--ivory);
+}
+
+/* Andrea Lema: editorial, elegant, contemporary. */
+:root {
+  --radius: 0.375rem;
+
+  --purple: #150522;
+  --fuchsia: #e82094;
+  --yellow: #f2d522;
+  --ivory: #f7f4f0;
+
+  --background: var(--ivory);
+  --foreground: var(--purple);
+  --card: #fffdfb;
+  --card-foreground: var(--purple);
+  --popover: #fffdfb;
+  --popover-foreground: var(--purple);
+  --primary: var(--purple);
+  --primary-foreground: var(--ivory);
+  --secondary: #ece6ee;
+  --secondary-foreground: var(--purple);
+  --muted: #ece6ee;
+  --muted-foreground: #5b4d66;
+  --accent: var(--fuchsia);
+  --accent-foreground: var(--purple);
+  /* Fuchsia itself is too light for small text on ivory. */
+  --accent-ink: #b80f72;
+  --destructive: #b3261e;
+  --destructive-foreground: var(--ivory);
+  --border: #dcd3df;
+  --input: #dcd3df;
+  --ring: var(--fuchsia);
+}
+
+/* Felicidad en Serio: bold, expressive, colorful, disruptive. */
+.brand-fes {
+  --background: var(--purple);
+  --foreground: var(--ivory);
+  --card: #26103a;
+  --card-foreground: var(--ivory);
+  --primary: var(--yellow);
+  --primary-foreground: var(--purple);
+  --secondary: #e82094;
+  --secondary-foreground: var(--purple);
+  --muted: #26103a;
+  --muted-foreground: #d8cfe0;
+  --accent: var(--yellow);
+  --accent-foreground: var(--purple);
+  --accent-ink: var(--yellow);
+  --border: #45285f;
+  --input: #45285f;
+}
+
+.brand-fes :is(h1, h2) {
+  font-weight: 500;
+}
+
+/* Escuela de Coaching Positivo: educational, structured, academic. */
+.brand-ecp {
+  --background: #fffdfb;
+  --secondary: var(--ivory);
+  --muted: var(--ivory);
+  --accent: #3a1560;
+  --accent-foreground: var(--ivory);
+  --accent-ink: #3a1560;
+}
+
+.brand-ecp :is(h1, h2, h3) {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.dark {
+  --background: oklch(0.2 0.015 60);
+  --foreground: oklch(0.96 0.01 85);
+  --card: oklch(0.25 0.015 60);
+  --card-foreground: oklch(0.96 0.01 85);
+  --popover: oklch(0.25 0.015 60);
+  --popover-foreground: oklch(0.96 0.01 85);
+  --primary: oklch(0.96 0.01 85);
+  --primary-foreground: oklch(0.2 0.015 60);
+  --secondary: oklch(0.3 0.02 60);
+  --secondary-foreground: oklch(0.96 0.01 85);
+  --muted: oklch(0.3 0.02 60);
+  --muted-foreground: oklch(0.72 0.02 70);
+  --accent: var(--fuchsia);
+  --accent-foreground: var(--purple);
+  --accent-ink: var(--fuchsia);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 500;
+}
+
+@utility rule-line {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}

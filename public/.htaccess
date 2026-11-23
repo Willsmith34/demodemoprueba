@@ -1,0 +1,14 @@
+Options -MultiViews -Indexes
+DirectoryIndex index.php
+
+# Keep Apache from redirecting /ecp to /ecp/ before index.php sees it.
+DirectorySlash Off
+
+RewriteEngine On
+
+# Real files (JS, CSS, images) are served directly, except HTML and PHP.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} !\.(html|php)$
+RewriteRule ^ - [L]
+
+RewriteRule ^ index.php [L]
