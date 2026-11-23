@@ -117,6 +117,37 @@ export function ImagePlaceholder({ label, className = "" }: { label: string; cla
   );
 }
 
+// A real photograph or logo filling the same box an ImagePlaceholder would.
+// `contain` shows the whole image (logos) on a background colour instead of cropping it.
+export function Photo({
+  src,
+  alt,
+  className = "",
+  position = "center",
+  contain = false,
+  background,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  position?: string;
+  contain?: boolean;
+  background?: string;
+}) {
+  return (
+    <div className={`overflow-hidden rounded-sm bg-muted ${className}`} style={{ background }}>
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className={`h-full w-full ${contain ? "object-contain" : "object-cover"}`}
+        style={{ objectPosition: position }}
+      />
+    </div>
+  );
+}
+
 // Marks content that needs real information before it can be published.
 export function Pending({ children }: { children: ReactNode }) {
   return (

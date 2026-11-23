@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { Card, ImagePlaceholder, PageHero, Section } from "@/components/sections";
+import { Card, PageHero, Photo, Section } from "@/components/sections";
 import { servicesFor, type Service } from "@/content/services";
 
 export const Route = createFileRoute("/servicios/")({
@@ -43,14 +43,21 @@ function Servicios() {
       />
 
       <Section id="personas" tinted eyebrow="Para personas" title="Tu vida y tu desarrollo">
-        <ImagePlaceholder label="Fotografía real: el espacio de consulta" className="mb-6 h-56" />
+        <Photo
+          src="/images/andrea-retrato-profesional.webp"
+          alt="Andrea Lema en su espacio de consulta"
+          className="mb-6 h-56"
+          position="center 28%"
+        />
         <ServiceCards audience="personas" />
       </Section>
 
       <Section id="organizaciones" eyebrow="Para organizaciones" title="Tus equipos y tu cultura">
-        <ImagePlaceholder
-          label="Fotografía real: trabajo con una organización"
+        <Photo
+          src="/images/andrea-presentacion.webp"
+          alt="Andrea Lema trabajando con una organización"
           className="mb-6 h-56"
+          position="center 30%"
         />
         <ServiceCards audience="organizaciones" />
         <Link to="/conferencias" className="mt-4 block">

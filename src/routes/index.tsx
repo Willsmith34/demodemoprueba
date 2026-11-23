@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import {
   Card,
   CardGrid,
-  ImagePlaceholder,
+  Photo,
   Section,
   buttonPrimary,
   buttonSecondary,
@@ -47,27 +47,45 @@ const territories = [
 const universe = [
   {
     to: "/felicidad-en-serio",
-    label: "Fotografía: Felicidad en Serio",
+    image: {
+      src: "/images/logo-felicidad-en-serio.webp",
+      alt: "Logo de Felicidad en Serio",
+      contain: true,
+      background: "#140522",
+    },
     title: "Felicidad en Serio",
     text: "Un movimiento de desarrollo humano.",
   },
   {
     to: "/escuela",
-    label: "Fotografía: una clase de la Escuela",
+    image: {
+      src: "/images/logo-escuela-coaching-azul.webp",
+      alt: "Logo de la Escuela de Coaching Positivo",
+      contain: true,
+      background: "#0b1521",
+    },
     title: "Escuela de Coaching",
     text: "Formación con enfoque educativo y académico.",
   },
   {
     to: "/servicios",
     hash: "personas",
-    label: "Fotografía: el espacio de consulta",
+    image: {
+      src: "/images/andrea-retrato-calido.webp",
+      alt: "Andrea Lema en su espacio de trabajo",
+      position: "center 20%",
+    },
     title: "Psicología",
     text: "Psicoterapia y procesos para personas.",
   },
   {
     to: "/servicios",
     hash: "organizaciones",
-    label: "Fotografía: trabajo con equipos",
+    image: {
+      src: "/images/andrea-presentacion.webp",
+      alt: "Andrea Lema presentando ante un equipo",
+      position: "center 30%",
+    },
     title: "Empresas",
     text: "Consultoría, liderazgo y cultura.",
   },
@@ -113,7 +131,12 @@ function Index() {
           </div>
         </Reveal>
         <Reveal delay={150}>
-          <ImagePlaceholder label="Retrato real de Andrea" className="aspect-[4/5]" />
+          <Photo
+            src="/images/andrea-retrato-profesional.webp"
+            alt="Retrato de Andrea Lema sonriendo en su escritorio"
+            className="aspect-[4/5]"
+            position="center 30%"
+          />
         </Reveal>
       </section>
 
@@ -135,7 +158,7 @@ function Index() {
                 {...("hash" in item ? { hash: item.hash } : {})}
                 className="group block"
               >
-                <ImagePlaceholder label={item.label} className="aspect-[4/3]" />
+                <Photo {...item.image} className="aspect-[4/3]" />
                 <h3 className="mt-4 font-display text-xl group-hover:underline">{item.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{item.text}</p>
               </Link>

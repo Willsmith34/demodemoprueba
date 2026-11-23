@@ -3,7 +3,7 @@ import { Cultiva } from "@/components/Cultiva";
 import { Reveal } from "@/components/Reveal";
 import {
   CallToAction,
-  ImagePlaceholder,
+  Photo,
   Pending,
   Section,
   buttonPrimary,
@@ -36,9 +36,11 @@ function SobreAndrea() {
           </blockquote>
         </Reveal>
         <Reveal delay={150}>
-          <ImagePlaceholder
-            label="Andrea trabajando, conversando o leyendo"
+          <Photo
+            src="/images/andrea-retrato-calido.webp"
+            alt="Andrea Lema trabajando en su escritorio"
             className="aspect-[4/5]"
+            position="center 25%"
           />
         </Reveal>
       </section>

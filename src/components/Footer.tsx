@@ -5,11 +5,11 @@ const links = [
   { to: "/", label: "Inicio" },
   { to: "/sobre-andrea", label: "Sobre Andrea" },
   { to: "/felicidad-en-serio", label: "Felicidad en Serio" },
-  { to: "/escuela", label: "Escuela de Coaching Positivo" },
+  { to: "/escuela", label: "Escuela" },
   { to: "/servicios", label: "Servicios" },
   { to: "/contenidos", label: "Contenidos" },
-  { to: "/conferencias", label: "Conferencias y colaboraciones" },
-  { to: "/contacto", label: "Contacto" },
+  { to: "/conferencias", label: "Conferencias" },
+  { to: "/contacto", label: "Conversemos" },
 ] as const;
 
 export function Footer() {

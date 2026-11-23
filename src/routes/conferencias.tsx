@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   CallToAction,
   CardGrid,
-  ImagePlaceholder,
+  Photo,
   PageHero,
   Pending,
   Section,
@@ -84,7 +84,12 @@ function Conferencias() {
       >
         <div className="grid gap-4 md:grid-cols-2">
           <Pending>Perfil profesional descargable y trayectoria en eventos.</Pending>
-          <ImagePlaceholder label="Fotografías reales de eventos" className="min-h-40" />
+          <Photo
+            src="/images/andrea-presentacion.webp"
+            alt="Andrea Lema dando una presentación"
+            className="h-72"
+            position="center 30%"
+          />
         </div>
       </Section>
 

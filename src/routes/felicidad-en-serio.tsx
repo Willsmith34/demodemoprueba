@@ -63,13 +63,19 @@ const movement = [
 function FelicidadEnSerio() {
   return (
     <main className="brand-fes bg-background text-foreground">
-      <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:py-32">
+      <section className="bg-white text-purple">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.22em]">
               Un movimiento de desarrollo humano
             </p>
-            <h1 className="mt-6 text-6xl leading-[0.98] sm:text-8xl">Felicidad en Serio</h1>
+            <h1 className="mt-4">
+              <img
+                src="/images/logo-felicidad-en-serio-blanco.webp"
+                alt="Felicidad en Serio"
+                className="-ml-6 w-64 sm:w-80"
+              />
+            </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed">
               La felicidad no es una emoción permanente. Es una construcción que involucra
               pensamientos, hábitos, relaciones, decisiones y circunstancias.
