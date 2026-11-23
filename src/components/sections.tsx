@@ -139,7 +139,6 @@ export function Photo({
       <img
         src={src}
         alt={alt}
-        loading="lazy"
         decoding="async"
         className={`h-full w-full ${contain ? "object-contain" : "object-cover"}`}
         style={{ objectPosition: position }}

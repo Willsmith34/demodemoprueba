@@ -43,31 +43,37 @@ function Servicios() {
       />
 
       <Section id="personas" tinted eyebrow="Para personas" title="Tu vida y tu desarrollo">
-        <Photo
-          src="/images/andrea-retrato-profesional.webp"
-          alt="Andrea Lema en su espacio de consulta"
-          className="mb-6 h-56"
-          position="center 28%"
-        />
-        <ServiceCards audience="personas" />
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+          <Photo
+            src="/images/andrea-retrato-profesional.webp"
+            alt="Andrea Lema en su espacio de consulta"
+            className="aspect-[4/5]"
+            position="center 30%"
+          />
+          <ServiceCards audience="personas" />
+        </div>
       </Section>
 
       <Section id="organizaciones" eyebrow="Para organizaciones" title="Tus equipos y tu cultura">
-        <Photo
-          src="/images/andrea-presentacion.webp"
-          alt="Andrea Lema trabajando con una organización"
-          className="mb-6 h-56"
-          position="center 30%"
-        />
-        <ServiceCards audience="organizaciones" />
-        <Link to="/conferencias" className="mt-4 block">
-          <Card
-            title="Conferencias y talleres"
-            text="Temas, formatos y solicitud de propuestas para tu evento u organización."
-          >
-            <span className="mt-4 text-sm font-medium text-accent-ink">Ver más →</span>
-          </Card>
-        </Link>
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+          <Photo
+            src="/images/andrea-presentacion.webp"
+            alt="Andrea Lema trabajando con una organización"
+            className="aspect-[4/5]"
+            position="center 35%"
+          />
+          <div>
+            <ServiceCards audience="organizaciones" />
+            <Link to="/conferencias" className="mt-4 block">
+              <Card
+                title="Conferencias y talleres"
+                text="Temas, formatos y solicitud de propuestas para tu evento u organización."
+              >
+                <span className="mt-4 text-sm font-medium text-accent-ink">Ver más →</span>
+              </Card>
+            </Link>
+          </div>
+        </div>
       </Section>
     </main>
   );
