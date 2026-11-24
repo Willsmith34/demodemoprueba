@@ -30,11 +30,13 @@ export function Cultiva({
         )}
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-4 lg:grid-cols-7">
+      <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4 lg:grid-cols-7">
         {steps.map((s, i) => (
           <Reveal key={s.label} delay={i * 60} className="bg-card p-6">
-            <s.Icon size={20} className="text-accent" strokeWidth={1.5} />
-            <p className="mt-6 font-mono text-xs text-muted-foreground">{s.n}</p>
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground">
+              <s.Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+            </span>
+            <p className="mt-5 font-mono text-xs text-muted-foreground">{s.n}</p>
             <p className="mt-1 font-display text-lg">{s.label}</p>
           </Reveal>
         ))}

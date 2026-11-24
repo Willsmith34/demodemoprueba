@@ -6,11 +6,11 @@ import { servicesFor, type Service } from "@/content/services";
 export const Route = createFileRoute("/servicios/")({
   head: () => ({
     meta: [
-      { title: "Servicios profesionales para personas y organizaciones | Andrea Lema" },
+      { title: "Servicios profesionales para personas y organizaciones | Soy Andy Lema" },
       {
         name: "description",
         content:
-          "Psicoterapia, claridad profesional, reinvención, consultoría organizacional, desarrollo de líderes, cultura y bienestar laboral con Andrea Lema.",
+          "Psicoterapia, claridad profesional, reinvención, consultoría organizacional, desarrollo de líderes, cultura y bienestar laboral con Andy Lema.",
       },
     ],
   }),
@@ -46,7 +46,7 @@ function Servicios() {
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <Photo
             src="/images/andrea-retrato-profesional.webp"
-            alt="Andrea Lema en su espacio de consulta"
+            alt="Andy Lema en su espacio de consulta"
             className="aspect-[4/5]"
             position="center 30%"
           />
@@ -58,7 +58,7 @@ function Servicios() {
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <Photo
             src="/images/andrea-presentacion.webp"
-            alt="Andrea Lema trabajando con una organización"
+            alt="Andy Lema trabajando con una organización"
             className="aspect-[4/5]"
             position="center 35%"
           />

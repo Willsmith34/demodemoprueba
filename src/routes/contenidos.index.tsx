@@ -1,25 +1,34 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CardGrid, PageHero, Pending, Section, buttonPrimary, mailto } from "@/components/sections";
+import { Briefcase, Brain, Smile, Users } from "lucide-react";
+import {
+  CardGrid,
+  type CardItem,
+  PageHero,
+  Pending,
+  Section,
+  buttonPrimary,
+  mailto,
+} from "@/components/sections";
 
 export const Route = createFileRoute("/contenidos/")({
   head: () => ({
     meta: [
-      { title: "Ideas para vivir mejor — Artículos, podcast y libros | Andrea Lema" },
+      { title: "Ideas para vivir mejor — Artículos, podcast y libros | Soy Andy Lema" },
       {
         name: "description",
         content:
-          "Artículos de psicología y desarrollo humano, felicidad, trabajo y liderazgo, junto a videos, podcast, newsletter y libros de Andrea Lema.",
+          "Artículos de psicología y desarrollo humano, felicidad, trabajo y liderazgo, junto a videos, podcast, newsletter y libros de Andy Lema.",
       },
     ],
   }),
   component: Contenidos,
 });
 
-const articleTopics = [
-  { title: "Psicología y desarrollo humano" },
-  { title: "Felicidad en Serio" },
-  { title: "Trabajo y desarrollo profesional" },
-  { title: "Liderazgo y organizaciones" },
+const articleTopics: CardItem[] = [
+  { title: "Psicología y desarrollo humano", icon: Brain, tone: "indigo" },
+  { title: "Felicidad en Serio", icon: Smile, tone: "yellow" },
+  { title: "Trabajo y desarrollo profesional", icon: Briefcase, tone: "violet" },
+  { title: "Liderazgo y organizaciones", icon: Users, tone: "blue" },
 ];
 
 function Contenidos() {

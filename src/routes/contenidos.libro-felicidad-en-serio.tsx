@@ -5,11 +5,11 @@ import { ImagePlaceholder, Pending, buttonSecondary } from "@/components/section
 export const Route = createFileRoute("/contenidos/libro-felicidad-en-serio")({
   head: () => ({
     meta: [
-      { title: "Felicidad en serio: el libro | Andrea Lema" },
+      { title: "Felicidad en serio: el libro | Soy Andy Lema" },
       {
         name: "description",
         content:
-          "Felicidad en serio. Cómo sanar, reinventarte y volver a brillar, el libro de Andrea Lema.",
+          "Felicidad en serio. Cómo sanar, reinventarte y volver a brillar, el libro de Andy Lema.",
       },
     ],
   }),

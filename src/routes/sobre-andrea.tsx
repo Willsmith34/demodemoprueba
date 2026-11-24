@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Brain, Briefcase, MessagesSquare, Smile } from "lucide-react";
 import { Cultiva } from "@/components/Cultiva";
 import { Reveal } from "@/components/Reveal";
 import {
   CallToAction,
+  IconBadge,
   Photo,
   Pending,
   Section,
@@ -12,11 +14,11 @@ import {
 export const Route = createFileRoute("/sobre-andrea")({
   head: () => ({
     meta: [
-      { title: "Sobre Andrea Lema — Historia, formación y filosofía" },
+      { title: "Historia, formación y filosofía | Soy Andy Lema" },
       {
         name: "description",
         content:
-          "La historia, la formación, la experiencia y la filosofía de Andrea Lema: psicología, coaching y 20 años en recursos humanos y transformación organizacional.",
+          "La historia, la formación, la experiencia y la filosofía de Andy Lema: psicología, coaching y 20 años en recursos humanos y transformación organizacional.",
       },
     ],
   }),
@@ -28,7 +30,7 @@ function SobreAndrea() {
     <main>
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:py-28 md:grid-cols-[1.3fr_1fr]">
         <Reveal>
-          <p className="eyebrow">Sobre Andrea</p>
+          <p className="eyebrow">Soy Andy</p>
           <blockquote className="mt-6 font-display text-3xl leading-[1.3] sm:text-4xl">
             No creo en las fórmulas mágicas para vivir mejor. Creo en el conocimiento, las
             decisiones y las acciones que nos permiten construir una vida más consciente y
@@ -38,7 +40,7 @@ function SobreAndrea() {
         <Reveal delay={150}>
           <Photo
             src="/images/andrea-retrato-calido.webp"
-            alt="Andrea Lema trabajando en su escritorio"
+            alt="Andy Lema trabajando en su escritorio"
             className="aspect-[4/5]"
             position="center 25%"
           />
@@ -46,17 +48,24 @@ function SobreAndrea() {
       </section>
 
       <Section tinted eyebrow="Mi historia" title="Quién soy más allá de mis títulos">
-        <Pending>La historia de Andrea, contada en primera persona.</Pending>
+        <Pending>La historia de Andy, contada en primera persona.</Pending>
       </Section>
 
       <Section eyebrow="Mi formación" title="Tres disciplinas, una misma pregunta">
         <ul className="grid gap-4 md:grid-cols-3">
-          {["Psicología", "Coaching ontológico", "Psicología positiva"].map((item) => (
+          {(
+            [
+              { label: "Psicología", icon: Brain, tone: "indigo" },
+              { label: "Coaching ontológico", icon: MessagesSquare, tone: "violet" },
+              { label: "Psicología positiva", icon: Smile, tone: "blue" },
+            ] as const
+          ).map((item) => (
             <li
-              key={item}
-              className="rounded-sm border border-border bg-card p-7 font-display text-xl"
+              key={item.label}
+              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-7 font-display text-xl"
             >
-              {item}
+              <IconBadge icon={item.icon} tone={item.tone} />
+              {item.label}
             </li>
           ))}
         </ul>
@@ -67,7 +76,9 @@ function SobreAndrea() {
         eyebrow="Mi experiencia"
         title="20 años en recursos humanos y transformación organizacional"
         lead="Una trayectoria dentro de las organizaciones que hoy alimenta tanto el trabajo con personas como el trabajo con equipos."
-      />
+      >
+        <IconBadge icon={Briefcase} tone="yellow" />
+      </Section>
 
       <Section
         eyebrow="Mi filosofía"

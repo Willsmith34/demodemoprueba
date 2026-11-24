@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail, Youtube } from "lucide-react";
+import { LogoStacked } from "./Logo";
 
 const links = [
   { to: "/", label: "Inicio" },
-  { to: "/sobre-andrea", label: "Sobre Andrea" },
-  { to: "/felicidad-en-serio", label: "Felicidad en Serio" },
+  { to: "/sobre-andrea", label: "Soy Andy" },
   { to: "/escuela", label: "Escuela" },
+  { to: "/felicidad-en-serio", label: "Felicidad en Serio" },
   { to: "/servicios", label: "Servicios" },
   { to: "/contenidos", label: "Contenidos" },
   { to: "/conferencias", label: "Conferencias" },
@@ -14,10 +15,10 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-secondary/40">
+    <footer className="border-t border-border bg-secondary">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <p className="font-display text-2xl">Andrea Lema</p>
+          <LogoStacked />
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Psicología, desarrollo humano y transformación para vivir y trabajar mejor.
           </p>
@@ -70,7 +71,7 @@ export function Footer() {
       </div>
       <div className="rule-line">
         <p className="mx-auto max-w-6xl px-5 py-6 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Andrea Lema. Todos los derechos reservados.
+          © {new Date().getFullYear()} Andy Lema. Todos los derechos reservados.
         </p>
       </div>
     </footer>

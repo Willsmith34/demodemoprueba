@@ -11,7 +11,10 @@
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
   --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Work Sans", system-ui, sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+  --font-marker: "Permanent Marker", "Poppins", cursive;
+  --font-condensed: "Anton", "Impact", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -32,81 +35,140 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-accent-ink: var(--accent-ink);
-  --color-purple: var(--purple);
-  --color-fuchsia: var(--fuchsia);
+  --color-ink: var(--ink);
+  --color-indigo: var(--indigo);
+  --color-violet: var(--violet);
+  --color-blue: var(--blue);
+  --color-lavender: var(--lavender);
   --color-yellow: var(--yellow);
   --color-ivory: var(--ivory);
+  --color-fes-night: var(--fes-night);
+  --color-fes-green: var(--fes-green);
+  --color-fes-pink: var(--fes-pink);
+  --color-fes-yellow: var(--fes-yellow);
+  --color-ecp-navy: var(--ecp-navy);
+  --color-ecp-cream: var(--ecp-cream);
+  --color-ecp-lime: var(--ecp-lime);
 }
 
-/* Andrea Lema: editorial, elegant, contemporary. */
+/* Soy Andy Lema: vibrant, warm, close. Palette from the brand board
+   (primary indigo, violet, blue, yellow complement). */
 :root {
-  --radius: 0.375rem;
+  --radius: 0.75rem;
 
-  --purple: #150522;
-  --fuchsia: #e82094;
-  --yellow: #f2d522;
-  --ivory: #f7f4f0;
+  --ink: #1d1446;
+  --indigo: #4318c5;
+  --violet: #810ec1;
+  --blue: #184bc1;
+  --lavender: #7e63d5;
+  --yellow: #ffd406;
+  --ivory: #faf7f2;
+
+  /* Felicidad en Serio logo */
+  --fes-night: #140522;
+  --fes-green: #23eb97;
+  --fes-pink: #f6229b;
+  --fes-yellow: #f6d922;
+
+  /* Escuela de Coaching Positivo logo */
+  --ecp-navy: #0b1521;
+  --ecp-cream: #f6f5f3;
+  --ecp-lime: #e2dc04;
 
   --background: var(--ivory);
-  --foreground: var(--purple);
-  --card: #fffdfb;
-  --card-foreground: var(--purple);
-  --popover: #fffdfb;
-  --popover-foreground: var(--purple);
-  --primary: var(--purple);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
   --primary-foreground: var(--ivory);
-  --secondary: #ece6ee;
-  --secondary-foreground: var(--purple);
-  --muted: #ece6ee;
-  --muted-foreground: #5b4d66;
-  --accent: var(--fuchsia);
-  --accent-foreground: var(--purple);
-  /* Fuchsia itself is too light for small text on ivory. */
-  --accent-ink: #b80f72;
+  --secondary: #efeafb;
+  --secondary-foreground: var(--ink);
+  --muted: #f1ecfb;
+  --muted-foreground: #574f78;
+  --accent: var(--indigo);
+  --accent-foreground: #ffffff;
+  --accent-ink: var(--indigo);
   --destructive: #b3261e;
-  --destructive-foreground: var(--ivory);
-  --border: #dcd3df;
-  --input: #dcd3df;
-  --ring: var(--fuchsia);
+  --destructive-foreground: #ffffff;
+  --border: #e0d9f2;
+  --input: #d6cdef;
+  --ring: var(--indigo);
 }
 
-/* Felicidad en Serio: bold, expressive, colorful, disruptive. */
+/* Felicidad en Serio: street, loud, neon on night purple. */
 .brand-fes {
-  --background: var(--purple);
-  --foreground: var(--ivory);
-  --card: #26103a;
-  --card-foreground: var(--ivory);
-  --primary: var(--yellow);
-  --primary-foreground: var(--purple);
-  --secondary: #e82094;
-  --secondary-foreground: var(--purple);
-  --muted: #26103a;
-  --muted-foreground: #d8cfe0;
-  --accent: var(--yellow);
-  --accent-foreground: var(--purple);
-  --accent-ink: var(--yellow);
-  --border: #45285f;
-  --input: #45285f;
+  --background: var(--fes-night);
+  --foreground: #fdf8ff;
+  --card: #1f0a33;
+  --card-foreground: #fdf8ff;
+  --primary: var(--fes-yellow);
+  --primary-foreground: var(--fes-night);
+  --secondary: #1f0a33;
+  --secondary-foreground: #fdf8ff;
+  --muted: #1b082d;
+  --muted-foreground: #d9cde6;
+  --accent: var(--fes-green);
+  --accent-foreground: var(--fes-night);
+  --accent-ink: var(--fes-green);
+  --border: #3a1c55;
+  --input: #3a1c55;
+  --ring: var(--fes-green);
 }
 
-.brand-fes :is(h1, h2) {
-  font-weight: 500;
+.brand-fes :is(h1, h2, h3) {
+  font-family: var(--font-marker);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-/* Escuela de Coaching Positivo: educational, structured, academic. */
+/* Escuela de Coaching Positivo: navy, cream and lime, academic but bold. */
 .brand-ecp {
-  --background: #fffdfb;
-  --secondary: var(--ivory);
-  --muted: var(--ivory);
-  --accent: #3a1560;
-  --accent-foreground: var(--ivory);
-  --accent-ink: #3a1560;
+  --background: var(--ecp-cream);
+  --foreground: var(--ecp-navy);
+  --card: #ffffff;
+  --card-foreground: var(--ecp-navy);
+  --primary: var(--ecp-navy);
+  --primary-foreground: var(--ecp-cream);
+  --secondary: #e9e8e2;
+  --muted: #ebeae4;
+  --muted-foreground: #3d4756;
+  --accent: var(--ecp-navy);
+  --accent-foreground: var(--ecp-lime);
+  --accent-ink: #283a52;
+  --border: #d6d5cd;
+  --input: #c9c8bf;
+  --ring: var(--ecp-navy);
 }
 
-.brand-ecp :is(h1, h2, h3) {
+.brand-ecp :is(h1, h2) {
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+.brand-ecp h3 {
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+/* Dark sections inside the ECP page. */
+.ecp-dark {
+  --background: var(--ecp-navy);
+  --foreground: var(--ecp-cream);
+  --card: #13202f;
+  --card-foreground: var(--ecp-cream);
+  --muted: #0f1b29;
+  --muted-foreground: #b9c0ca;
+  --accent: var(--ecp-lime);
+  --accent-foreground: var(--ecp-navy);
+  --accent-ink: var(--ecp-lime);
+  --border: #24344a;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .dark {
@@ -122,9 +184,9 @@
   --secondary-foreground: oklch(0.96 0.01 85);
   --muted: oklch(0.3 0.02 60);
   --muted-foreground: oklch(0.72 0.02 70);
-  --accent: var(--fuchsia);
-  --accent-foreground: var(--purple);
-  --accent-ink: var(--fuchsia);
+  --accent: var(--lavender);
+  --accent-foreground: #ffffff;
+  --accent-ink: var(--lavender);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
 }
@@ -153,7 +215,7 @@
 
 @utility eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent-ink);
   font-weight: 500;
@@ -174,4 +236,17 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* Gradient text, indigo to blue, for the key words of a headline. */
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--indigo) 0%, var(--violet) 45%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Sticker-style offset shadow used across the Felicidad en Serio page. */
+@utility shadow-sticker {
+  box-shadow: 5px 5px 0 0 currentColor;
 }
