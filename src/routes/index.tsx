@@ -14,6 +14,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { BOOK_URL, external } from "@/content/links";
 import { Reveal } from "@/components/Reveal";
 import {
   Card,
@@ -115,7 +116,7 @@ const universe = [
 
 const media = [
   {
-    href: "https://www.amazon.com/Felicidad-Serio-reinventarte-brillar-Spanish-ebook/dp/B0G7LZVPH1",
+    href: BOOK_URL,
     title: "Libro",
     text: "Felicidad en serio. Cómo sanar, reinventarte y volver a brillar.",
     icon: BookOpen,
@@ -273,7 +274,7 @@ function Index() {
               <Card title={item.title} text={item.text} icon={item.icon} tone={item.tone} />
             );
             return "href" in item ? (
-              <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">
+              <a key={item.title} href={item.href} {...external}>
                 {card}
               </a>
             ) : (

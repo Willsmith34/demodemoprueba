@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Briefcase, Brain, Smile, Users } from "lucide-react";
+import { BOOK_URL, external } from "@/content/links";
 import {
   CardGrid,
   type CardItem,
@@ -58,9 +59,9 @@ function Contenidos() {
         <p className="max-w-2xl leading-relaxed text-muted-foreground">
           Cómo sanar, reinventarte y volver a brillar.
         </p>
-        <Link to="/contenidos/libro-felicidad-en-serio" className={`${buttonPrimary} mt-6`}>
+        <a href={BOOK_URL} {...external} className={`${buttonPrimary} mt-6`}>
           Conoce el libro
-        </Link>
+        </a>
       </Section>
 
       <Section

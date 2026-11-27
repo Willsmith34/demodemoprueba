@@ -89,7 +89,7 @@ export function NewsletterForm() {
                 tabIndex={-1}
                 autoComplete="off"
                 aria-hidden="true"
-                className="absolute -left-[9999px] h-px w-px opacity-0"
+                className="absolute left-[-9999px] h-px w-px opacity-0"
               />
               <label className="block text-sm font-medium">
                 Tu nombre

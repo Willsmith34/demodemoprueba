@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { mailto } from "@/components/sections";
+import { BOOK_URL, external } from "@/content/links";
 
 export const Route = createFileRoute("/felicidad-en-serio")({
   head: () => ({
@@ -86,7 +87,12 @@ function Smiley({ className = "" }: { className?: string }) {
         strokeLinecap="round"
       />
       <path d="M18 18v5M29 18v5" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-      <path d="M15 29c5 6 13 6 18 0" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+      <path
+        d="M15 29c5 6 13 6 18 0"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -123,9 +129,7 @@ const outlineButton =
   "inline-flex items-center gap-2 rounded-full border-2 border-fes-green px-7 py-3 font-marker text-base text-fes-green transition-colors hover:bg-fes-green hover:text-fes-night";
 
 function Eyebrow({ children, color = "text-fes-green" }: { children: string; color?: string }) {
-  return (
-    <p className={`font-marker text-sm uppercase tracking-[0.18em] ${color}`}>{children}</p>
-  );
+  return <p className={`font-marker text-sm uppercase tracking-[0.18em] ${color}`}>{children}</p>;
 }
 
 function FelicidadEnSerio() {
@@ -157,9 +161,9 @@ function FelicidadEnSerio() {
               <a href="#comunidad" className={stickerButton}>
                 Súmate al movimiento <ArrowRight size={18} aria-hidden="true" />
               </a>
-              <Link to="/contenidos/libro-felicidad-en-serio" className={outlineButton}>
+              <a href={BOOK_URL} {...external} className={outlineButton}>
                 El libro
-              </Link>
+              </a>
             </div>
           </Reveal>
           <Reveal delay={150} className="relative mx-auto w-full max-w-sm">
@@ -273,9 +277,9 @@ function FelicidadEnSerio() {
           <Eyebrow color="text-fes-pink">Libros y recursos</Eyebrow>
           <h2 className="mt-4 text-4xl">Para seguir explorando</h2>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/contenidos/libro-felicidad-en-serio" className={stickerButton}>
+            <a href={BOOK_URL} {...external} className={stickerButton}>
               Conoce el libro
-            </Link>
+            </a>
             <Link to="/contenidos" className={outlineButton}>
               Ver recursos
             </Link>
