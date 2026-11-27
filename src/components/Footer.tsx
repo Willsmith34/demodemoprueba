@@ -70,9 +70,12 @@ export function Footer() {
         </div>
       </div>
       <div className="rule-line">
-        <p className="mx-auto max-w-6xl px-5 py-6 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Andy Lema. Todos los derechos reservados.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-3 px-5 py-6 text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} Andy Lema. Todos los derechos reservados.</p>
+          <Link to="/politica-de-privacidad" className="underline hover:text-foreground">
+            Política de privacidad
+          </Link>
+        </div>
       </div>
     </footer>
   );

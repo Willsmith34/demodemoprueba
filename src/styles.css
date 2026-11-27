@@ -244,6 +244,12 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  /* Italic glyphs overhang their box; the gradient only paints inside it, so
+     pad every line fragment (and cancel the padding in layout) to avoid clipping. */
+  padding: 0.08em 0.3em 0.08em 0.15em;
+  margin: -0.08em -0.3em -0.08em -0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* Sticker-style offset shadow used across the Felicidad en Serio page. */

@@ -14,6 +14,7 @@ import { Route as ConferenciasRouteImport } from './routes/conferencias'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as EscuelaRouteImport } from './routes/escuela'
 import { Route as FelicidadEnSerioRouteImport } from './routes/felicidad-en-serio'
+import { Route as PoliticaDePrivacidadRouteImport } from './routes/politica-de-privacidad'
 import { Route as SobreAndreaRouteImport } from './routes/sobre-andrea'
 import { Route as ContenidosIndexRouteImport } from './routes/contenidos.index'
 import { Route as ContenidosLibroFelicidadEnSerioRouteImport } from './routes/contenidos.libro-felicidad-en-serio'
@@ -43,6 +44,11 @@ const EscuelaRoute = EscuelaRouteImport.update({
 const FelicidadEnSerioRoute = FelicidadEnSerioRouteImport.update({
   id: '/felicidad-en-serio',
   path: '/felicidad-en-serio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadRoute = PoliticaDePrivacidadRouteImport.update({
+  id: '/politica-de-privacidad',
+  path: '/politica-de-privacidad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreAndreaRoute = SobreAndreaRouteImport.update({
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/escuela': typeof EscuelaRoute
   '/felicidad-en-serio': typeof FelicidadEnSerioRoute
+  '/politica-de-privacidad': typeof PoliticaDePrivacidadRoute
   '/sobre-andrea': typeof SobreAndreaRoute
   '/contenidos/libro-felicidad-en-serio': typeof ContenidosLibroFelicidadEnSerioRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/escuela': typeof EscuelaRoute
   '/felicidad-en-serio': typeof FelicidadEnSerioRoute
+  '/politica-de-privacidad': typeof PoliticaDePrivacidadRoute
   '/sobre-andrea': typeof SobreAndreaRoute
   '/contenidos/libro-felicidad-en-serio': typeof ContenidosLibroFelicidadEnSerioRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/escuela': typeof EscuelaRoute
   '/felicidad-en-serio': typeof FelicidadEnSerioRoute
+  '/politica-de-privacidad': typeof PoliticaDePrivacidadRoute
   '/sobre-andrea': typeof SobreAndreaRoute
   '/contenidos/libro-felicidad-en-serio': typeof ContenidosLibroFelicidadEnSerioRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/escuela'
     | '/felicidad-en-serio'
+    | '/politica-de-privacidad'
     | '/sobre-andrea'
     | '/contenidos/libro-felicidad-en-serio'
     | '/servicios/$slug'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/escuela'
     | '/felicidad-en-serio'
+    | '/politica-de-privacidad'
     | '/sobre-andrea'
     | '/contenidos/libro-felicidad-en-serio'
     | '/servicios/$slug'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/escuela'
     | '/felicidad-en-serio'
+    | '/politica-de-privacidad'
     | '/sobre-andrea'
     | '/contenidos/libro-felicidad-en-serio'
     | '/servicios/$slug'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   EscuelaRoute: typeof EscuelaRoute
   FelicidadEnSerioRoute: typeof FelicidadEnSerioRoute
+  PoliticaDePrivacidadRoute: typeof PoliticaDePrivacidadRoute
   SobreAndreaRoute: typeof SobreAndreaRoute
   ContenidosLibroFelicidadEnSerioRoute: typeof ContenidosLibroFelicidadEnSerioRoute
   ServiciosSlugRoute: typeof ServiciosSlugRoute
@@ -196,6 +209,13 @@ declare module '@tanstack/react-router' {
       path: '/felicidad-en-serio'
       fullPath: '/felicidad-en-serio'
       preLoaderRoute: typeof FelicidadEnSerioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidad': {
+      id: '/politica-de-privacidad'
+      path: '/politica-de-privacidad'
+      fullPath: '/politica-de-privacidad'
+      preLoaderRoute: typeof PoliticaDePrivacidadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-andrea': {
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   EscuelaRoute: EscuelaRoute,
   FelicidadEnSerioRoute: FelicidadEnSerioRoute,
+  PoliticaDePrivacidadRoute: PoliticaDePrivacidadRoute,
   SobreAndreaRoute: SobreAndreaRoute,
   ContenidosLibroFelicidadEnSerioRoute: ContenidosLibroFelicidadEnSerioRoute,
   ServiciosSlugRoute: ServiciosSlugRoute,

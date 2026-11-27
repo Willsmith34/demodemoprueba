@@ -13,6 +13,7 @@ import {
   Sprout,
   UserRound,
 } from "lucide-react";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
 import {
   Card,
@@ -23,7 +24,6 @@ import {
   Section,
   buttonPrimary,
   buttonSecondary,
-  mailto,
 } from "@/components/sections";
 
 export const Route = createFileRoute("/")({
@@ -47,20 +47,20 @@ export const Route = createFileRoute("/")({
 
 const territories: CardItem[] = [
   {
-    title: "Psicología",
-    text: "Comprender lo que sentimos, pensamos y hacemos, con el conocimiento como punto de partida.",
+    title: "Psicología & Coaching",
+    text: "Comprender nuestras emociones, pensamientos y comportamientos para desarrollar recursos que nos permitan vivir con mayor bienestar y salud emocional",
     icon: Brain,
     tone: "indigo",
   },
   {
     title: "Desarrollo humano",
-    text: "Las decisiones, los hábitos y las relaciones con los que construimos una vida más consciente.",
+    text: "Comprender nuestras emociones, pensamientos y comportamientos para desarrollar recursos que nos permitan vivir con mayor bienestar y salud emocional",
     icon: Sprout,
     tone: "violet",
   },
   {
-    title: "Transformación",
-    text: "Los cambios en la vida y en las organizaciones, llevados de la intención a la acción.",
+    title: "Transformación Organizacional",
+    text: "Acompañar procesos de cambio y evolución en las personas, los equipos y las organizaciones, convirtiendo las ideas y las intenciones en acciones concretas",
     icon: Sparkles,
     tone: "blue",
   },
@@ -70,7 +70,7 @@ const universe = [
   {
     to: "/escuela",
     image: {
-      src: "/images/logo-escuela-coaching-azul.webp",
+      src: "/images/logo-escuela-coaching.webp",
       alt: "Logo de la Escuela de Coaching Positivo",
       contain: true,
       background: "#0b1521",
@@ -115,7 +115,7 @@ const universe = [
 
 const media = [
   {
-    to: "/contenidos/libro-felicidad-en-serio",
+    href: "https://www.amazon.com/Felicidad-Serio-reinventarte-brillar-Spanish-ebook/dp/B0G7LZVPH1",
     title: "Libro",
     text: "Felicidad en serio. Cómo sanar, reinventarte y volver a brillar.",
     icon: BookOpen,
@@ -131,7 +131,7 @@ const media = [
   {
     to: "/contenidos",
     title: "Podcast",
-    text: "Conversaciones para pensar la vida y el trabajo.",
+    text: "Conversaciones sobre la vida real y aprender a vivirla mejor.",
     icon: Headphones,
     tone: "blue",
   },
@@ -185,7 +185,7 @@ function Index() {
             />
             <p className="absolute -bottom-5 right-6 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-ink shadow-lg">
               <MessageCircleHeart size={18} className="text-violet" aria-hidden="true" />
-              20 años acompañando personas
+              +18 años acompañando personas
             </p>
           </Reveal>
         </div>
@@ -195,7 +195,7 @@ function Index() {
         tinted
         eyebrow="Conoce a Andy"
         title="No tengo una sola respuesta. Tengo muchas preguntas que vale la pena hacernos."
-        lead="Soy psicóloga, coach y tengo 20 años de experiencia en recursos humanos y transformación organizacional. Mi trabajo integra estas miradas en tres territorios de conocimiento."
+        lead="Soy psicóloga, coach y creadora de Coaching Positivo, con más de 20 años de experiencia en recursos humanos, liderazgo y transformación personal y organizacional. Mi trabajo integra estas miradas en tres territorios de conocimiento."
       >
         <CardGrid items={territories} />
       </Section>
@@ -268,11 +268,20 @@ function Index() {
 
       <Section tinted eyebrow="Más allá de la consulta" title="Libros, conferencias y podcast">
         <div className="grid gap-4 md:grid-cols-3">
-          {media.map((item) => (
-            <Link key={item.title} to={item.to}>
+          {media.map((item) => {
+            const card = (
               <Card title={item.title} text={item.text} icon={item.icon} tone={item.tone} />
-            </Link>
-          ))}
+            );
+            return "href" in item ? (
+              <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">
+                {card}
+              </a>
+            ) : (
+              <Link key={item.title} to={item.to}>
+                {card}
+              </Link>
+            );
+          })}
         </div>
       </Section>
 
@@ -297,13 +306,15 @@ function Index() {
             <p className="mt-3 text-ivory/75">Ideas y recursos directamente en tu correo.</p>
           </Reveal>
           <a
-            href={mailto("Quiero suscribirme a la newsletter")}
+            href="#newsletter"
             className="inline-flex items-center gap-2 justify-self-start rounded-full bg-yellow px-7 py-3.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             Quiero suscribirme <ArrowRight size={16} aria-hidden="true" />
           </a>
         </div>
       </section>
+
+      <NewsletterForm />
 
       <Section tinted eyebrow="Contacto" title="Conversemos." lead="Cuéntame qué estás buscando.">
         <Link to="/contacto" className={buttonPrimary}>

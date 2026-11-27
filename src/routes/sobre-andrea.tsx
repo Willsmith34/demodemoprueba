@@ -1,15 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Brain, Briefcase, MessagesSquare, Smile } from "lucide-react";
+import { Brain, MessagesSquare, Smile } from "lucide-react";
 import { Cultiva } from "@/components/Cultiva";
 import { Reveal } from "@/components/Reveal";
-import {
-  CallToAction,
-  IconBadge,
-  Photo,
-  Pending,
-  Section,
-  buttonPrimary,
-} from "@/components/sections";
+import { CallToAction, IconBadge, Photo, Section, buttonPrimary } from "@/components/sections";
+
+const story = [
+  "Soy Andrea Lema mamá, esposa, Psicóloga, Coach y Promotora de Bienestar. Me encanta aprender, hacer preguntas y descubrir nuevas maneras de entender la vida y a las personas.",
+  "Hace más de 20 años comencé un camino profesional que me llevó por la psicología, los Recursos Humanos, el coaching ontológico, la psicología positiva y la transformación de personas y organizaciones.",
+  "Pero mi historia no está hecha solamente de títulos y experiencias laborales. También está hecha de cambios, decisiones, desafíos, sueños y muchas reinvenciones. Porque sí, también me ha tocado empezar de nuevo y descubrir que nunca dejamos de transformarnos, he vivido en 5 países y cada migración fue por diferentes motivos y diferentes condiciones. Además me he reinventado profesionalmente.",
+  "De todo ese recorrido nació mi manera de entender y acompañar el desarrollo humano a través de mi propuesta de Coaching Positivo y Felicidad en Serio.",
+  "Hoy quiero compartir lo que he aprendido, acompañar a otras personas en sus propios procesos y recordarnos algo importante: No necesitamos tener la vida resuelta para empezar a construir una vida que nos haga sentir bien.",
+  "No tengo fórmulas mágicas. Tengo formación, experiencia, empatía, preguntas y muchas ganas de seguir aprendiendo.",
+];
+
+const experience = [
+  { figure: "+18 años", text: "de trayectoria profesional en Psicología y Recursos Humanos." },
+  { figure: "+1.200 pacientes", text: "acompañadas en procesos terapéuticos" },
+  { figure: "+500 personas", text: "acompañadas en procesos de Coaching." },
+  { figure: "+80 líderes", text: "formados en liderazgo, autoliderazgo y desarrollo de equipos." },
+  {
+    figure: "+2300 profesionales",
+    text: "capacitados en Coaching Positivo, habilidades laborales, agilidad, transformación y mentalidad emprendedora.",
+  },
+];
 
 export const Route = createFileRoute("/sobre-andrea")({
   head: () => ({
@@ -48,7 +61,14 @@ function SobreAndrea() {
       </section>
 
       <Section tinted eyebrow="Mi historia" title="Quién soy más allá de mis títulos">
-        <Pending>La historia de Andy, contada en primera persona.</Pending>
+        <div className="max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
+          {story.map((paragraph) => (
+            <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+          ))}
+          <p className="font-semibold text-foreground">
+            Y una convicción: Nuestra felicidad merece que nos la tomemos en serio.
+          </p>
+        </div>
       </Section>
 
       <Section eyebrow="Mi formación" title="Tres disciplinas, una misma pregunta">
@@ -74,10 +94,17 @@ function SobreAndrea() {
       <Section
         tinted
         eyebrow="Mi experiencia"
-        title="20 años en recursos humanos y transformación organizacional"
-        lead="Una trayectoria dentro de las organizaciones que hoy alimenta tanto el trabajo con personas como el trabajo con equipos."
+        title="Una trayectoria que integra personas, desarrollo y transformación."
+        lead="Una trayectoria construida acompañando personas, impulsando líderes y transformando organizaciones, desde la psicología y el coaching positivo."
       >
-        <IconBadge icon={Briefcase} tone="yellow" />
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {experience.map((item) => (
+            <li key={item.figure} className="h-full rounded-2xl border border-border bg-card p-7">
+              <p className="font-display text-3xl text-accent-ink">{item.figure}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section
@@ -95,14 +122,6 @@ function SobreAndrea() {
         title="Método CULTIVA"
         description="Cómo integro psicología, coaching y experiencia: siete pasos, en orden, sin atajos."
       />
-
-      <Section
-        tinted
-        eyebrow="Mi trayectoria"
-        title="Proyectos, organizaciones, conferencias y colaboraciones"
-      >
-        <Pending>Los proyectos, organizaciones y colaboraciones más representativos.</Pending>
-      </Section>
 
       <CallToAction
         title="Conversemos."

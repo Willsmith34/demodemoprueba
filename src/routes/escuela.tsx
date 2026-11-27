@@ -3,15 +3,18 @@ import {
   ArrowRight,
   Award,
   BookOpenCheck,
+  Brain,
   CalendarDays,
   GraduationCap,
   HeartHandshake,
   Layers,
   MessageSquareQuote,
+  MessagesSquare,
   Plus,
-  School,
+  Sparkles,
   TrendingUp,
   Users,
+  Wrench,
 } from "lucide-react";
 import { Cultiva } from "@/components/Cultiva";
 import { Reveal } from "@/components/Reveal";
@@ -45,16 +48,31 @@ export const Route = createFileRoute("/escuela")({
   component: Escuela,
 });
 
-const about: CardItem[] = [
+const disciplines = [
   {
-    title: "Qué es la Escuela",
-    text: "El espacio de formación del universo de Andy Lema, para profesionales y personas que quieren aprender a acompañar a otros.",
-    icon: School,
+    title: "Psicología",
+    text: "Comprensión de pensamientos, emociones y comportamientos, con fundamentos de la terapia cognitivo-conductual",
+    icon: Brain,
   },
   {
-    title: "Qué es el Coaching Positivo",
-    text: "Un enfoque de acompañamiento que integra el coaching y los aportes de la psicología positiva.",
+    title: "Psicología Positiva",
+    text: "Fortalezas, Sentido de vida, emociones positivas, estado de Flow",
     icon: HeartHandshake,
+  },
+  {
+    title: "Neurociencias",
+    text: "Entender cómo funciona nuestro cerebro para aprovechar su potencial",
+    icon: Sparkles,
+  },
+  {
+    title: "Coaching Ontológico",
+    text: "lenguaje, observador, emociones, toma de conciencia y acción",
+    icon: MessagesSquare,
+  },
+  {
+    title: "Herramientas prácticas",
+    text: "ejercicios, planificación y seguimiento para transformar aprendizajes en acciones concretas.",
+    icon: Wrench,
   },
 ];
 
@@ -116,12 +134,16 @@ function Escuela() {
               <GraduationCap size={14} aria-hidden="true" /> Escuela de Coaching Positivo
             </p>
             <h1 className="mt-6 text-balance text-5xl leading-[1.02] sm:text-7xl">
-              Formación rigurosa para acompañar a{" "}
-              <span className="text-ecp-lime">otras personas</span>
+              Aprende a acompañar procesos de{" "}
+              <span className="text-ecp-lime">transformación humana</span>
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Un espacio educativo para aprender coaching positivo con fundamentos, metodología y
-              práctica.
+              Una formación que integra psicología, coaching ontológico, psicología positiva,
+              neurociencias y herramientas prácticas para acompañar a las personas a conocerse,
+              desarrollar sus recursos y construir una vida con mayor bienestar y sentido
+            </p>
+            <p className="mt-4 max-w-xl text-lg font-semibold leading-relaxed">
+              Formación, metodología y práctica para llevar el desarrollo humano a la vida real
             </p>
             <div className="mt-10">
               <a href="#programas" className={buttonPrimary}>
@@ -131,7 +153,7 @@ function Escuela() {
           </Reveal>
           <Reveal delay={150} className="mx-auto w-full max-w-xs md:max-w-sm">
             <img
-              src="/images/logo-escuela-coaching-azul.webp"
+              src="/images/logo-escuela-coaching.webp"
               alt="Logo de la Escuela de Coaching Positivo (ECP+)"
               className="w-full"
             />
@@ -141,8 +163,37 @@ function Escuela() {
 
       <div className="h-2 bg-ecp-lime" aria-hidden="true" />
 
-      <Section eyebrow="Conoce la Escuela">
-        <CardGrid columns={2} items={about} />
+      <Section
+        eyebrow="Más que una Escuela"
+        title="Una mirada integral del desarrollo humano"
+        lead="En la Escuela de Coaching Positivo entendemos que acompañar a una persona requiere mucho más que hacer preguntas poderosas."
+      >
+        <Reveal className="max-w-3xl space-y-5 leading-relaxed">
+          <p className="text-muted-foreground">
+            Por eso integramos distintas disciplinas y herramientas:
+          </p>
+          <ul className="space-y-4">
+            {disciplines.map(({ title, text, icon: Icon }) => (
+              <li key={title} className="flex items-start gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent-ink">
+                  <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
+                </span>
+                <p className="pt-2 text-muted-foreground">
+                  <strong className="font-semibold text-foreground">{title}:</strong> {text}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="text-muted-foreground">
+            No buscamos formar coaches que repitan fórmulas. Buscamos desarrollar profesionales
+            capaces de acompañar procesos con criterio, responsabilidad y humanidad.
+          </p>
+          <p className="font-semibold">
+            Esta metodología nace de la integración de conocimientos y de más de 20 años de
+            trayectoria profesional, incluyendo mi experiencia como psicóloga acompañando a más de
+            2.000 personas en sus procesos de cambio, desarrollo y bienestar.
+          </p>
+        </Reveal>
       </Section>
 
       <div className="border-t border-border bg-muted">
